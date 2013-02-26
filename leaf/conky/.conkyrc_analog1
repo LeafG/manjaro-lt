@@ -1,0 +1,44 @@
+## killall conky && conky -c ~/TBG/ACC/.conkyrc
+
+ ###  Begin Window Settings  ##################################################
+ # Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_type override
+own_window_transparent yes
+
+minimum_size 220 220    ## width, height
+maximum_width 220    ## width - usually a good idea to equal minimum width.
+
+gap_x 20    ## left &right
+gap_y 350    ## up & down
+
+alignment top_right
+ ####################################################  End Window Settings  ###
+ ###  Font Settings  ##########################################################
+ # Use Xft (anti-aliased font and stuff) 
+
+
+ # Use the Xdbe extension? (eliminates flicker)
+ # It is highly recommended to use own window with this one so
+ # double buffer won't be so big
+double_buffer yes
+
+
+ # 0 makes Conky run forever
+total_run_times 0
+cpu_avg_samples 1
+net_avg_samples 1
+
+ # Defaults to 4MiB
+ # Set to 0 to disable the image cache
+ # Increase this value if you use $image lots
+imlib_cache_size 0
+
+update_interval 1
+
+lua_load ~/conky/clock.lua
+lua_draw_hook_post draw_clock
+
+TEXT
+#${image /usr/share/icons/png/lars2.png -p -0,0 -s 220x220}
+${image /usr/share/icons/png/Topaz_Circled2.png -p -0,0 -s 220x220}

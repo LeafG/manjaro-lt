@@ -1,0 +1,43 @@
+#
+# Place in /home/[user account]/.config/openbox/autostart as user template
+# Otherwise, can be placed in /etc/xdg/openbox/autostart as global template
+# Written by the Manjaro Team
+#
+
+# xdg-user-dirs-update: check if user has directories document,download, etc.
+# If not, then create them
+if [ -x /usr/bin/xdg-user-dirs-update ] ; then
+    /usr/bin/xdg-user-dirs-update
+fi
+
+# Background
+nitrogen --restore &
+
+# Compositing
+xcompmgr &
+
+# Startup
+pnmixer &
+xscreensaver -no-splash &
+udiskie &
+#synapse &
+
+setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,il
+
+# Panel
+tint2 &
+(tint2 -c ~/.config/tint2/tint2-panel) &
+(sleep 1s && tint2 -c ~/.config/tint2/tint2-workspaces) &
+
+# Optional Launcher (remove hash from the line below to enable it)
+xfce4-panel &
+
+conky -q &
+sh /home/leaf/conky/conkyCalCairoToggle.sh &
+sh  /home/leaf/conky/conkyClockToggle.sh &
+
+#/home/leaf/Desktop/conky_cal_cairo.desktop;
+#/home/leaf/Desktop/conky_analog1;
+#conky -c ~conky/.conky_calendar;
+
+(sleep 1s && xxkb ~/.xxkbrc) &

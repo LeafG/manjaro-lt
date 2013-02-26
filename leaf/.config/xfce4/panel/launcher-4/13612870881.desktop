@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ROXTerm
+GenericName=Terminal
+Comment=Use the command line
+TryExec=roxterm
+Exec=roxterm
+Icon=roxterm
+Type=Application
+Categories=GTK;Utility;TerminalEmulator;System;
+X-XFCE-Source=file:///usr/share/applications/roxterm.desktop
